@@ -1,0 +1,11 @@
+.contenaire{
+    display: flex;
+}
+
+.contenaire p{
+    margin-left: 15px;
+}
+
+#texte{
+    font-size: 16px;
+}
