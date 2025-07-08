@@ -8,23 +8,32 @@
     <title>Formulaire</title>
 </head>
 <body>
-    <h1>Saisissez votre prénom et un âge</h1>
-
-    <div class="contenaire">
-        <div class="element">
-            <label for="name">Prénom </label>
-            <input type="text" id="prenom" name="name" required/>
+    <main>
+        <div class="titre">
+            <h1>Saisissez votre prénom et un âge</h1>
         </div>
-        <div class="element">
-            <label for="age">Äge</label>
-            <input id="age" type="number" name="saisieManuelle" value="16"/>
-            <button id="valider" >Valider</button>
-            <button id="vider">Vider</button>
-        </div>
-        <hr>
-        <span id="resultat"></span>
+        <div class="contenaire">
+            <form>
+                <div class="element">
+                    <label for="name">Prénom </label>
+                    <input type="text" id="prenom" name="name"/>
+                </div>
+                <div class="element">
+                    <label for="age">Âge</label>
+                    <input id="age" type="number" name="saisieManuelle" value="16"/>
+                    <button id="valider" >Valider</button>
+                    <button id="vider">Vider</button>
+                </div>
 
-    </div>
+            </form>
+           
+            </div>
+            <hr>
+            <span id="resultat"></span>
+
+        </div>
+    </main>
+    
     
     
     

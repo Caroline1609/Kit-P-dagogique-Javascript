@@ -12,4 +12,5 @@ valider.addEventListener("click", function() {
     else {
         resultat.textContent = `Bonjour ${prenom.value}, votre âge est : ${age.value} ans.`;
     }
+    
 });

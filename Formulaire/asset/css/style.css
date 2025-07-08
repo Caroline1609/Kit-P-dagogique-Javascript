@@ -1,4 +1,26 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
 .contenaire{
     display: flex;
+    justify-content: center;
     
 }
+
+.element{
+    padding: 16px;
+}
+
+main{
+    border: solid;
+    padding: 42px;
+    width: 800px;
+}
+
+form{
+    display: flex;
+}
+
