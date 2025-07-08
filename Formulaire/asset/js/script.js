@@ -6,7 +6,7 @@ const resultat = document.getElementById('resultat');
 
 valider.addEventListener("click", function() {
 
-    if (prenom === '' || isNaN(age) || age <= 0) {
+    if (prenom === '' || age <= 0) {
 
         resultat.textContent = 'Veuillez compléter/corriger le formulaire.';
     }
