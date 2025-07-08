@@ -1,5 +1,10 @@
+body{
+    text-align: center;
+}
 .contenaire{
     display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .contenaire p{
@@ -7,5 +12,7 @@
 }
 
 #texte{
-    font-size: 16px;
+    margin-top: 5em;
+    
 }
+
