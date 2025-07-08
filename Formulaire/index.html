@@ -1,11 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script type="text/javascript" src="/Formulaire/asset/js/script.js" defer></script>
+    <link rel="stylesheet" href="/Formulaire/asset/css/style.css">
+    <title>Formulaire</title>
 </head>
 <body>
+    <h1>Saisissez votre prénom et un âge</h1>
+
+    <div class="contenaire">
+        <div class="element">
+            <label for="name">Prénom </label>
+            <input type="text" id="prenom" name="name" required/>
+        </div>
+        <div class="element">
+            <label for="age">Äge</label>
+            <input id="age" type="number" name="saisieManuelle" value="16"/>
+            <button id="valider" >Valider</button>
+            <button id="vider">Vider</button>
+        </div>
+        <hr>
+        <span id="resultat"></span>
+
+    </div>
+    
+    
     
 </body>
 </html>

@@ -1,8 +1,8 @@
 const augmenterTaille = document.getElementById('augmenterTaille');
 const taille = document.getElementById('taille');
-var texte = document.getElementById('texte');
-const diminuerTaille = document.getElementById('diminuerTaille')
-const saisieManuelle = document.getElementById('saisieManuelle')
+const texte = document.getElementById('texte');
+const diminuerTaille = document.getElementById('diminuerTaille');
+const saisieManuelle = document.getElementById('saisieManuelle');
 
 let tailleParDefaut = 16; // la taille minimum est 16 px.
 let tailleMinimum = 8;
@@ -17,6 +17,8 @@ function TailleFinal(nouvelleTaille){
         tailleParDefaut = nouvelleTaille;
         texte.style.fontSize = tailleParDefaut + 'px';
         taille.textContent = tailleParDefaut;
+        saisieManuelle.value = tailleParDefaut; 
+
     } else {
         alert(`Veuillez entrer une taille valide entre ${tailleMinimum} et ${tailleMaximum}.`);
     }
