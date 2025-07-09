@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
             statut.textContent = ''; 
         } else {
             resultat.textContent = `Bonjour ${prenom.value}, votre âge est : ${age.value} ans.`;
-            afficherStatut(); 
+            afficherStatut();
+            afficheRetraite();
         }
     });
 
@@ -36,6 +37,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function afficheRetraite(){
-        
+        let age = Number(age.value);
+        let difference = 64 - age;
+
+        if (age < 64) {
+            statut.textContent = `Il vous reste ${difference} année(s) avant la retraite`;
+        } else if (age > 64) {
+            statut.textContent = `Vous êtes à la retraite depuis ${difference}`;
+        } else{
+            statut.textContent = `Vous prenez votre retraite cette année !`;
+        }
     }
 });
