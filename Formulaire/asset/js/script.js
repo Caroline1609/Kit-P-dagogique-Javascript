@@ -36,16 +36,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function afficheRetraite(){
-        let age = Number(age.value);
-        let difference = 64 - age;
+    function afficheRetraite() {
+    const ageRetraite = 64;
+    const ageUtilisateur = parseInt(age.value);
 
-        if (age < 64) {
-            statut.textContent = `Il vous reste ${difference} année(s) avant la retraite`;
-        } else if (age > 64) {
-            statut.textContent = `Vous êtes à la retraite depuis ${difference}`;
-        } else{
-            statut.textContent = `Vous prenez votre retraite cette année !`;
-        }
+    if (ageUtilisateur < ageRetraite) {
+
+        retraiteOuPas.textContent = `Il vous reste ${ageRetraite - ageUtilisateur} année(s) avant la retraite`;
+
+    } else if (ageUtilisateur > ageRetraite) {
+
+        retraiteOuPas.textContent = `Vous êtes à la retraite depuis ${ageUtilisateur - ageRetraite} année(s)`;
+
+    } else {
+
+        retraiteOuPas.textContent = `Vous prenez votre retraite cette année !`;
+        
     }
+}
 });
