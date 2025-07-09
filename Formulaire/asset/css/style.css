@@ -4,10 +4,15 @@ body{
     justify-content: center;
 }
 
-.contenaire{
+.boite{
     display: flex;
     justify-content: center;
     
+}
+
+hr{
+    height: 2px;
+    background-color: black;
 }
 
 .element{
@@ -15,7 +20,7 @@ body{
 }
 
 main{
-    border: solid;
+    border: solid 2px blue;
     padding: 42px;
     width: 800px;
 }
@@ -27,5 +32,19 @@ form{
 .poubelle{
     display: flex;
     flex-direction: column;
+}
+
+button{
+    color: blue;
+    border-color: blue;
+}
+
+#prenom, #age{
+    border-color: blue;
+}
+
+.highlight {
+  color: blue;
+  font-weight: bold;
 }
 
