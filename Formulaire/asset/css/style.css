@@ -24,3 +24,8 @@ form{
     display: flex;
 }
 
+.poubelle{
+    display: flex;
+    flex-direction: column;
+}
+
