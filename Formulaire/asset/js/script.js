@@ -46,6 +46,6 @@ function afficheRetraite(ageNum) {
   } else if (ageNum > ageRetraite) {
     retraiteOuPas.innerHTML = `Vous êtes à la retraite depuis <span class="highlight">${ageNum - ageRetraite}</span> année(s).`;
   } else {
-    retraiteOuPas.innerHTML = `<span class="highlight">Vous prenez votre retraite cette année !</span>`;
+    retraiteOuPas.innerHTML = `Vous prenez votre retraite cette année`;
   }
 }
