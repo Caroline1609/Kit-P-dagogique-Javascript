@@ -1,19 +1,36 @@
-const resultat = document.getElementById("resultat");
+const resultat = document.getElementById("resultatDate");
 const calculer = document.getElementById("calculer");
- const input = document.getElementById("dateDeNaissance").value;
+const dateEcouler = document.getElementById("dateEcouler");
+
+
 
 calculer.addEventListener('click', function() {
-   
-    const dateNaissance = new Date(input); // Crée un objet Date avec les données fournies par l'utilisateur
-    const maintenant = new Date(); // Crée un objet Date pour la date et l'heure actuelles
 
+    const input = document.getElementById("dateDeNaissance").value;
+    
+    const dateUtilisateur = new Date(input);
+    const actuelle = new Date();
+  
+    if (!input) {
 
-    if (dateNaissance > maintenant) { // Vérifie si la date de naissance est dans le futur
-        resultat.textContent = "La date ne peut pas être dans le futur.";
+        resultat.innerHTML = "Veuillez entrer une date.";
+
+    } else if (dateUtilisateur > actuelle) {
+
+        resultat.innerHTML = "La date est dans le futur, veuillez entrer une date valide.";
+
+    } else {
+        formatageDate(dateUtilisateur, actuelle);
+        
     }
 
-    // Calcule le nombre d'années écoulées entre la date de naissance et aujourd'hui
-    let anneesEcoulees = maintenant.getFullYear() - dateNaissance.getFullYear();
-
-
 });
+
+function formatageDate(dateUtilisateur, actuelle){
+    const formatageDate = dateUtilisateur.toLocaleDateString('fr-FR');
+    const formatageFinal = dateUtilisateur.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+    const anneePasse = actuelle.getFullYear() - dateUtilisateur.getFullYear();
+
+    resultat.innerHTML = `Vous êtes né(e) le ${formatageDate} à ${formatageFinal}.<br>Il s'est écoulé ${anneePasse} années depuis votre naissance.`;
+    dateEcouler.innerHTML = `Il s'est écoulé ${anneePasse} années depuis votre naissance.`;
+}
