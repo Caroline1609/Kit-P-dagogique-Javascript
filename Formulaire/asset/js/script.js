@@ -16,7 +16,7 @@ valider.addEventListener("click", function(event) {
     statut.textContent = '';
     retraiteOuPas.textContent = '';
   } else {
-    resultat.innerHTML = `Bonjour <span class="highlight">${prenom.value}</span>, votre âge est : <span class="highlight">${ageNum}</span>.`;
+    resultat.innerHTML = `Bonjour <span class="highlight">${prenom.value}</span>, votre âge est : <span class="highlight">${ageNum}</span> ans.`;
     afficherStatut(ageNum);
     afficheRetraite(ageNum);
   }
@@ -44,7 +44,7 @@ function afficheRetraite(ageNum) {
   if (ageNum < ageRetraite) {
     retraiteOuPas.innerHTML = `Il vous reste <span class="highlight">${ageRetraite - ageNum}</span> année(s) avant la retraite.`;
   } else if (ageNum > ageRetraite) {
-    retraiteOuPas.innerHTML = `Vous êtes à la retraite depuis <span class="highlight">${ageNum - ageRetraite}</span> année(s).`;
+    retraiteOuPas.innerHTML = `Vous êtes à la retraite depuis ${ageNum - ageRetraite} année(s).`;
   } else {
     retraiteOuPas.innerHTML = `Vous prenez votre retraite cette année`;
   }
