@@ -1,6 +1,7 @@
 const resultat = document.getElementById("resultatDate");
 const calculer = document.getElementById("calculer");
 const dateEcouler = document.getElementById("dateEcouler");
+const signeAstro = document.getElementById("signeAstro");
 
 
 
@@ -21,6 +22,7 @@ calculer.addEventListener('click', function() {
 
     } else {
         formatageDate(dateUtilisateur, actuelle);
+        signeAstrologique(date);
         
     }
 
@@ -31,6 +33,19 @@ function formatageDate(dateUtilisateur, actuelle){
     const formatageFinal = dateUtilisateur.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
     const anneePasse = actuelle.getFullYear() - dateUtilisateur.getFullYear();
 
-    resultat.innerHTML = `Vous êtes né(e) le ${formatageDate} à ${formatageFinal}.<br>Il s'est écoulé ${anneePasse} années depuis votre naissance.`;
+    resultat.innerHTML = `Vous êtes né(e) le ${formatageDate} à ${formatageFinal}.`;
     dateEcouler.innerHTML = `Il s'est écoulé ${anneePasse} années depuis votre naissance.`;
+    signeAstro.innerHTML = ` Votre signe astrologique est : ${signe}.`;
+}
+
+function signeAstrologique(date) {
+    const jour = date.getDate();
+    const mois = date.getMonth() + 1; // Les mois sont indexés à partir de 0
+
+    const signes = [
+    { nom: "Verseau", debut: { mois: 1, jour: 20 }, fin: { mois: 2, jour: 18 } },
+    { nom: "Poissons", debut: { mois: 1, jour: 20 }, fin: { mois: 2, jour: 18 } },
+
+
+    ]
 }

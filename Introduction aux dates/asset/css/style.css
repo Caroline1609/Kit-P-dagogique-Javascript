@@ -16,3 +16,8 @@ main{
     border: solid 2px blue;
     padding: 42px;
 }
+
+.resultat{
+    display: flex;
+    flex-direction: column;
+}
