@@ -31,9 +31,6 @@ calculer.addEventListener('click', function() {
 
 });
 
-function anneBisextile(annee) {
-    return (annee % 4 === 0 && annee % 100 !== 0) || (annee % 400 === 0);
-}
 
 function formatageDate(dateUtilisateur, actuelle){
     const formatageDate = dateUtilisateur.toLocaleDateString('fr-FR');
@@ -41,8 +38,7 @@ function formatageDate(dateUtilisateur, actuelle){
     const isLeapYear = (year) => new Date(year, 1, 29).getMonth() === 1;
 
     const anneePasse = actuelle.getFullYear() - dateUtilisateur.getFullYear();
-    const anneeNaissance = dateUtilisateur.getFullYear();
-    const estBissextile = isLeapYear(anneeNaissance);
+
     
     
     if (estBissextile){
