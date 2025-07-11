@@ -35,19 +35,9 @@ calculer.addEventListener('click', function() {
 function formatageDate(dateUtilisateur, actuelle){
     const formatageDate = dateUtilisateur.toLocaleDateString('fr-FR');
     const formatageFinal = dateUtilisateur.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
-    const isLeapYear = (year) => new Date(year, 1, 29).getMonth() === 1;
 
-    const anneePasse = actuelle.getFullYear() - dateUtilisateur.getFullYear();
-
-    
-    
-    if (estBissextile){
-        resultat.innerHTML = `Erreur de date recommencer`;
-
-    } else{
-        resultat.innerHTML = `Vous êtes né(e) le <span class= "color">${formatageDate} </span> à <span class= "color">${formatageFinal}</span>.`;
-        dateEcouler.innerHTML = `Il s'est écoulé ${anneePasse} années depuis votre naissance.`;
-    }
+    resultat.innerHTML = `Vous êtes né(e) le <span class= "color">${formatageDate} </span> à <span class= "color">${formatageFinal}</span>.`;
+    dateEcouler.innerHTML = `Il s'est écoulé ${anneePasse} années depuis votre naissance.`;
     
 
     

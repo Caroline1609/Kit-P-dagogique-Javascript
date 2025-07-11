@@ -22,3 +22,7 @@ section{
 .element{
     padding: 10px;
 }
+
+input{
+    border-color: blue;
+}
