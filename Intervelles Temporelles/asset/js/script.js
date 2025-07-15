@@ -5,34 +5,21 @@ const resultat = document.getElementById("resultatDateHeure");
 
 bouton1.addEventListener("click", function() {
 
-    affichageDateEtHeure();
+    const maintenant = new Date();
 
-})
-
-function affichageDateEtHeure(dateUtilisateur){
     
 
-    const date1 = new Date();
+    const jour = maintenant.getDate();
+    const mois = maintenant.getMonth() + 1;
+    const annee = maintenant.getFullYear();
 
+    const heures = maintenant.getHours();
+    const minutes = maintenant.getMinutes();
 
-    //format date fr
-    let jour = date1.getDate();
-    let mois = date1.getMonth() + 1;
-    let annee = date1.getFullYear();
+    const dateFormatee = `${jour}/${mois}/${annee}`;
+    const heureFormatee = `${heures}:${minutes}`;
 
-    let formatageDate = `${jour}/${mois}/${annee}`;
+    console.log(maintenant)
 
-    //format minute fr
-    let heures = date1.getHours();
-    let minutes = date1.getMinutes();
-
-
-    let heureFormatFr = dateUtilisateur.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
-
-    dateActuelle.value = date1;
-    heureActuelle.value = heureFormatFr;
-
-    resultat.innerHTML = `Aujourd'hui nous sommes le ${formatageDate}, l'heure courante est : ${heureFormatFr}.`;
-     
-
-}
+    resultat.textContent = `Aujourd'hui, nous sommes le ${dateFormatee} et il est ${heureFormatee}.`;
+});
