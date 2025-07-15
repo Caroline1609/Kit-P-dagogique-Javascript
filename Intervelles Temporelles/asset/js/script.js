@@ -5,11 +5,12 @@ const resultat = document.getElementById("resultatDateHeure");
 
 bouton1.addEventListener("click", function() {
 
-    affichageDateEtHeure(date1);
+    affichageDateEtHeure();
 
 })
 
-function affichageDateEtHeure(){
+function affichageDateEtHeure(dateUtilisateur){
+    
 
     const date1 = new Date();
 
@@ -22,13 +23,13 @@ function affichageDateEtHeure(){
     let formatageDate = `${jour}/${mois}/${annee}`;
 
     //format minute fr
-    let heures = maintenant.getHours();
-    let minutes = maintenant.getMinutes();
+    let heures = date1.getHours();
+    let minutes = date1.getMinutes();
 
 
-    let heureFormatFr = `${heures}:${minutes}`;
+    let heureFormatFr = dateUtilisateur.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
 
-    dateActuelle.valueAsDate = date1;
+    dateActuelle.value = date1;
     heureActuelle.value = heureFormatFr;
 
     resultat.innerHTML = `Aujourd'hui nous sommes le ${formatageDate}, l'heure courante est : ${heureFormatFr}.`;
