@@ -9,26 +9,32 @@
 </head>
 <body>
     <main>
-            <h1>Gestion des dates et des Intervalles</h1>
-            <section>
-                <div class="element">
-                    <label for="date">Date actuelle :</label>
-                    <input type="date" id="dateActuelle">
-                </div>
-                <div class="element">
-                    <label for="date">Heure actuelle :</label>
-                    <input type="time" id="heureActuelle">
-                    <button id="boutonDate">Afficher Date du jour</button>
-                </div>               
-                
-            </section>
-            <hr>
-            <section class="resultat">
+        <h1>Gestion des dates et des Intervalles</h1>
+        <section>
+            <div class="element">
+                <label for="date">Date actuelle :</label>
+                <input type="date" id="dateActuelle">
+            </div>
+            <div class="element">
+                <label for="date">Heure actuelle :</label>
+                <input type="time" id="heureActuelle">
+                <button id="boutonDate">Afficher Date du jour</button>
+            </div>               
             
-                <span id="resultatDateHeure"></span>
-
-
-            </section>
-        </main>
+        </section>
+        <hr>
+        <section class="resultat">
+            <span id="resultatDateHeure"></span>
+        </section>
+        <hr>
+        <section>
+            <h2>Selectionner une date et une heure</h2>
+            <div class="element">
+                <label for="date">Date actuelle :</label>
+                <input type="datetime" id="dateActuelle" value="2018-06-12T19:30">
+            </div>
+        </section>
+            
+    </main>
 </body>
 </html>
