@@ -30,3 +30,7 @@ input{
 .blue{
     color: rgb(6, 6, 167);
 }
+
+.resultat{
+    margin: 30px;
+}

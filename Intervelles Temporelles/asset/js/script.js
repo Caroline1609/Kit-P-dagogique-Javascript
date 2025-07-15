@@ -30,8 +30,8 @@ bouton1.addEventListener("click", function() {
 
 
     resultat.innerHTML = `Aujourd'hui, nous sommes le <span class="blue">${dateFormatee}</span> et il est <span class="blue">${heureFormatee}</span>.`;
+
+
+    
 });
 
-function date2(){
-    
-}
