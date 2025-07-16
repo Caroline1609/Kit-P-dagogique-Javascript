@@ -4,6 +4,7 @@ const bouton1 = document.getElementById("boutonDate");
 const resultat = document.getElementById("resultatDateHeure");
 const resultatDateHeure2 = document.getElementById("resultatDateHeure2");
 const dateAutre = document.getElementById("dateAutre");
+const intervalle = document.getElementById("intervalle");
 
 
 
@@ -27,25 +28,24 @@ function afficherDate(){
 bouton1.addEventListener("click", afficherDate);
 
 function calculerIntervalle() {
-        const date1 = dateActuelle.value;
-        const heure = heureActuelle.value;
-        const dateSaisie = new Date(date1 + "" + heure);
-        const input = dateAutre.value;
-        const saisieInput = new Date(input);
+    const date1 = document.getElementById('dateActuelle').value;
+    const heure = document.getElementById('heureActuelle').value;
+    const dateSaisie = new Date(date1 + "T" + heure); // Use "T" to separate date and time
+    const input = document.getElementById('dateAutre').value;
+    const saisieInput = new Date(input);
 
-        if (isNaN(dateSaisie.getTime()) || isNaN(saisieInput.getTime())) {
-            resultatDateHeure2.innerHTML = "Veuillez entrer des dates valides.";
-            return;
-        }
+    if (isNaN(dateSaisie.getTime()) || isNaN(saisieInput.getTime())) {
+        console.error("Invalid date input");
+        return;
+    }
 
-        let dateDiff = saisieInput - dateSaisie;
-        dateDiff = dateDiff / 1000 / 60 / 60 / 24 / 365.25; 
-        dateDiff = Math.floor(dateDiff);
+    let jour = dateDiff(saisieInput, dateSaisie);
 
-        resultatDateHeure2.innerHTML = `Il y a <span class="blue">${dateDiff}</span> années.`;
+    resultatDateHeure2.innerHTML = `Il y a <span class="blue">${jour}</span> années.`;
 }
 
-    resultatDateHeure2.addEventListener("click", calculerIntervalle);
+
+    intervalle.addEventListener("click", calculerIntervalle);
 
 
 
