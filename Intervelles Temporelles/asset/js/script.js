@@ -10,6 +10,12 @@ const intervalle = document.getElementById("intervalle");
 let dateFormateeGlobale;
 let heureFormateeGlobale;
 
+
+
+
+
+
+
 function afficherDate() {
     const date1 = dateActuelle.value;
     const heure = heureActuelle.value;
@@ -21,10 +27,13 @@ function afficherDate() {
     dateFormateeGlobale = dateSaisie.toLocaleDateString("fr-FR", optionsDate);
     heureFormateeGlobale = dateSaisie.toLocaleTimeString("fr-FR", optionsHeure,);
 
+
     resultat.innerHTML = `Aujourd'hui, nous sommes le <span class="blue">${dateFormateeGlobale}</span> et il est <span class="blue">${heureFormateeGlobale}</span>.`;
 
     return dateSaisie;
 }
+
+setInterval(afficherDate, 1000);
 
 function dateDiffInDays(date2, date1) {
     const diffTime = date2 - date1;
@@ -63,6 +72,7 @@ function calculerIntervalle() {
         resultatDateHeure2.innerHTML = `Aujourd'hui, nous sommes le <span class="blue">${dateFormatee} à ${heureFormatee}</span>.`;
     }
 }
+
 
 bouton1.addEventListener("click", afficherDate);
 intervalle.addEventListener("click", calculerIntervalle);
