@@ -30,7 +30,7 @@ bouton1.addEventListener("click", afficherDate);
 function calculerIntervalle() {
     const date1 = document.getElementById('dateActuelle').value;
     const heure = document.getElementById('heureActuelle').value;
-    const dateSaisie = new Date(date1 + "T" + heure); // Use "T" to separate date and time
+    const dateSaisie = new Date(date1 + "" + heure); 
     const input = document.getElementById('dateAutre').value;
     const saisieInput = new Date(input);
 
