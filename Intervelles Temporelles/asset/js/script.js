@@ -15,11 +15,11 @@ function afficherDate() {
     const heure = heureActuelle.value;
     const dateSaisie = new Date(date1 + " " + heure);
 
-    const optionsDate = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    const optionsDate = { day: '2-digit', month: 'long', year: 'numeric' };
     const optionsHeure = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
 
     dateFormateeGlobale = dateSaisie.toLocaleDateString("fr-FR", optionsDate);
-    heureFormateeGlobale = dateSaisie.toLocaleTimeString("fr-FR", optionsHeure);
+    heureFormateeGlobale = dateSaisie.toLocaleTimeString("fr-FR", optionsHeure,);
 
     resultat.innerHTML = `Aujourd'hui, nous sommes le <span class="blue">${dateFormateeGlobale}</span> et il est <span class="blue">${heureFormateeGlobale}</span>.`;
 
@@ -48,7 +48,7 @@ function calculerIntervalle() {
     const date1 = new Date(dateActuelle.value + " " + heureActuelle.value);
     const input = dateAutre.value;
     const saisieInput = new Date(input);
-    const optionsDate = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    const optionsDate = { day: '2-digit', month: 'long', year: 'numeric' };
     const optionsHeure = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
     const dateFormatee = saisieInput.toLocaleDateString("fr-FR", optionsDate);
     const heureFormatee = saisieInput.toLocaleTimeString("fr-FR", optionsHeure);
