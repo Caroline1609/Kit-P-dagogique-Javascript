@@ -4,6 +4,7 @@ let table = document.getElementById('table')
 
 
 let people = ['Mike Dev', 'John Makenzie', 'Léa Grande'];
+console.log(people)
 
 people.forEach(function(element){  // Parcours de chaque élément du tableau
 
@@ -16,19 +17,15 @@ function tableau(){
 
 
     let separerNom = people.map(person => person.split(' '));
-
+    
     console.log(separerNom);
+
 
     
 
-
-    const table = document.getElementById('table')
-    const tablebody = document.createElement("tbody");
-
+    
 
 
 }
 
 tableau();
-
-
