@@ -1,31 +1,73 @@
-let liste = document.getElementById('liste')
-let table = document.getElementById('table')
-
-
-
+let liste = document.getElementById('liste');
+let table = document.getElementById('table');
 let people = ['Mike Dev', 'John Makenzie', 'Léa Grande'];
-console.log(people)
 
-people.forEach(function(element){  // Parcours de chaque élément du tableau
+people.forEach(function(person) {
+    let li = document.createElement("li");
+    li.textContent = person;
+    liste.appendChild(li);
+});
 
-    let li = document.createElement("li"); // Création d'un nouvel élément de liste <li>
-    li.textContent = element;  // Définition du contenu textuel de l'élément <li> avec la valeur de l'élément du tableau
-    liste.appendChild(li); // Ajout de l'élément <li> à l'élément <ul>
-})
+function genererMail(firstName, lastName) {
+    return `${firstName.toLowerCase()}.${lastName.toLowerCase()}@example.com`;
+}
 
-function tableau(){
+function tableau() {
 
+    table.innerHTML = '';
 
-    let separerNom = people.map(person => person.split(' '));
-    
-    console.log(separerNom);
+    let thead = document.createElement('thead');
+    let headerRow = document.createElement('tr');
 
+    let headerTr = ['Nom', 'Prénom', 'Email', 'Supprimer'];
 
-    
+    headerTr.forEach(headerText => {
 
-    
+        let th = document.createElement('th');
+        th.textContent = headerText;
+        headerRow.appendChild(th);
 
+    });
 
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    let tbody = document.createElement('tbody');
+
+    people.forEach((person, index) => {
+        let [firstName, lastName] = person.split(' ');
+        let email = genererMail(firstName, lastName);
+
+        let row = document.createElement('tr');
+
+        let ligne = [lastName, firstName, email];
+        ligne.forEach(text => {
+            let td = document.createElement('td');
+            td.textContent = text;
+            row.appendChild(td);
+        });
+
+        // Create delete button
+        let deleteTd = document.createElement('td');
+        let deleteButton = document.createElement('button');
+        
+        deleteButton.textContent = 'X';
+        deleteButton.onclick = function() {
+            people.splice(index, 1);
+            liste.innerHTML = '';
+            people.forEach(function(person) {
+                let li = document.createElement("li");
+                li.textContent = person;
+                liste.appendChild(li);
+            });
+            tableau();
+        };
+        deleteTd.appendChild(deleteButton);
+        row.appendChild(deleteTd);
+        tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
 }
 
 tableau();
