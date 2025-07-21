@@ -50,10 +50,12 @@ function tableau() {
         // Create delete button
         let deleteTd = document.createElement('td');
         let deleteButton = document.createElement('button');
+
+
         
         deleteButton.textContent = 'X';
-        deleteButton.onclick = function() {
-            people.splice(index, 1);
+        deleteButton.addEventListener("click", function() {
+            people.splice(index, 1); //supprime la ligne
             liste.innerHTML = '';
             people.forEach(function(person) {
                 let li = document.createElement("li");
@@ -61,7 +63,7 @@ function tableau() {
                 liste.appendChild(li);
             });
             tableau();
-        };
+        });
         deleteTd.appendChild(deleteButton);
         row.appendChild(deleteTd);
         tbody.appendChild(row);
