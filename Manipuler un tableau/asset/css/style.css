@@ -6,6 +6,8 @@ body{
     color: #ACCBE1;
 }
 
+
+
 h1, li, ul{
     color: #ACCBE1;
     margin: 0;
@@ -25,9 +27,26 @@ main{
 table{
     background-color: #637081;
     margin-top: 20px;
+    text-align: center;
 }
 
 th, td {
     border: #7C98B3 solid 1px;
+}
+
+button{
+    background-color:  #637081 ;
+    border: none;
+    color: white;
+}
+
+.form{
+    margin-top: 20px;
+    padding: 30px;
+    border: solid 2px ;
+}
+
+.form input, #ajouter{
+    border: #7C98B3 solid 4px;
 }
 

@@ -1,6 +1,10 @@
 let liste = document.getElementById('liste');
 let table = document.getElementById('table');
 let people = ['Mike Dev', 'John Makenzie', 'Léa Grande'];
+let message = document.getElementById('message');
+let prenom = document.getElementById("prenom");
+let nom = document.getElementById("nom");
+let ajout = document.getElementById('ajouter');
 
 people.forEach(function(person) {
     let li = document.createElement("li");
@@ -18,15 +22,12 @@ function tableau() {
 
     let thead = document.createElement('thead');
     let headerRow = document.createElement('tr');
-
     let headerTr = ['Nom', 'Prénom', 'Email', 'Supprimer'];
 
     headerTr.forEach(headerText => {
-
         let th = document.createElement('th');
         th.textContent = headerText;
         headerRow.appendChild(th);
-
     });
 
     thead.appendChild(headerRow);
@@ -47,13 +48,13 @@ function tableau() {
             row.appendChild(td);
         });
 
-        // Create delete button
         let deleteTd = document.createElement('td');
         let deleteButton = document.createElement('button');
 
 
-        
+
         deleteButton.textContent = 'X';
+
         deleteButton.addEventListener("click", function() {
             people.splice(index, 1); //supprime la ligne
             liste.innerHTML = '';
@@ -67,9 +68,19 @@ function tableau() {
         deleteTd.appendChild(deleteButton);
         row.appendChild(deleteTd);
         tbody.appendChild(row);
+
+        
+
+         
     });
+
+    
 
     table.appendChild(tbody);
 }
 
 tableau();
+
+
+
+
