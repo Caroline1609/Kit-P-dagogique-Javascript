@@ -69,14 +69,31 @@ function tableau() {
     table.appendChild(tbody);
 }
 
+// function verification(){
+//     if()
+// }
+
 function ajouterPersonne() {
     let prenom = prenomInput.value.trim(); 
-    let nom = nomInput.value.trim(); 
+    let nom = nomInput.value.trim();
+
+    let regex = new RegExp('[A-Za-zÀ-ž]{2,}');
+
 
     if (prenom && nom) {
-        people.push(`${prenom} ${nom}`);
-        afficherListe();
-        tableau();
+
+        if (typeof prenomInput.value === 'string' && typeof prenom === 'string') {
+            console.log("je suis une chaine");
+        } else{
+            console.log("Je ne suis pas une chaine")
+        }
+
+
+
+        // people.push(`${prenom} ${nom}`);
+        // message.textContent = `${prenom} ${nom} ajouté`
+        // afficherListe();
+        // tableau();
     }
 }
 
