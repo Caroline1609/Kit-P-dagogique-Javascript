@@ -69,9 +69,6 @@ function tableau() {
     table.appendChild(tbody);
 }
 
-// function verification(){
-//     if()
-// }
 
 function ajouterPersonne() {
     let prenom = prenomInput.value.trim(); 
@@ -79,21 +76,21 @@ function ajouterPersonne() {
 
     let regex = new RegExp('[A-Za-zÀ-ž]{2,}');
 
+    let ajout = `${prenom} ${nom}`;
 
-    if (prenom && nom) {
+    if (prenom && nom && !people.includes(ajout)) {
 
-        if (typeof prenomInput.value === 'string' && typeof prenom === 'string') {
-            console.log("je suis une chaine");
+        if (regex.test(prenom) && regex.test(nom)) {
+            people.push(`${prenom} ${nom}`);
+            message.textContent = `${prenom} ${nom} ajouté`
+            afficherListe();
+            tableau();
         } else{
-            console.log("Je ne suis pas une chaine")
+            message.textContent = "Vérifier les données saisie, le Prénom ou le Nom ne respecte pas le format requis"
         }
 
-
-
-        // people.push(`${prenom} ${nom}`);
-        // message.textContent = `${prenom} ${nom} ajouté`
-        // afficherListe();
-        // tableau();
+    } else{
+        message.textContent = "Vérifier les données saisies, soit vous avez oublier de remplir un champ, soit le nom et le prenom est deja dans la liste"
     }
 }
 

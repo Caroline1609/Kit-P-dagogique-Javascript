@@ -38,19 +38,24 @@ button{
     background-color:  #637081 ;
     border: none;
     color: white;
+    
 }
 
 .form{
     margin-top: 20px;
-    padding: 30px;
+    padding: 13px;
     border: solid 2px ;
 }
 
 .form input, #ajouter{
-    border: #7C98B3 solid 4px;
+    border: #7C98B3 solid 3px;
+    
 }
 
 .bloc{
     margin-top: 30px ;
 }
 
+.form #ajouter{
+    border-radius: 5px;
+}
