@@ -8,6 +8,10 @@ const myEmployee = {
     salary: 2150
 }
 
+function title(){
+    
+}
+
 console.log(myEmployee)
 
 function createTable(employee){
@@ -31,6 +35,7 @@ function createTable(employee){
     table.appendChild(thead);
 
     const dataRow = document.createElement('tr');
+
     Object.values(employee).forEach(value => {
         const td = document.createElement('td');
         td.textContent = value.toString();

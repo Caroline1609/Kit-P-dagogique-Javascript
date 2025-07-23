@@ -3,13 +3,15 @@ const calculer = document.getElementById("calculer");
 const dateEcouler = document.getElementById("dateEcouler");
 const signeAstro = document.getElementById("signeAstro");
 
-
-
+const actuelle = new Date();
+console.log(actuelle);
 
 calculer.addEventListener('click', function() {
 
     const input = document.getElementById("dateDeNaissance").value;
-        const actuelle = new Date();
+    const actuelle = new Date();
+    
+    console.log(actuelle);
     
     const dateUtilisateur = new Date(input);
     if(isNaN(dateUtilisateur.valueOf())){

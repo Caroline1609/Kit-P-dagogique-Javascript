@@ -74,7 +74,7 @@ function ajouterPersonne() {
     let prenom = prenomInput.value.trim(); 
     let nom = nomInput.value.trim();
 
-    let regex = new RegExp('[A-Za-zÀ-ž]{2,}');
+    let regex = new RegExp('^[A-Za-zÀ-ž]{2,}$');
 
     let ajout = `${prenom} ${nom}`;
 
