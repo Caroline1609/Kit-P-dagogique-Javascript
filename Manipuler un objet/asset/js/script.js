@@ -1,5 +1,11 @@
 const nameEmployee = document.getElementById('nameEmployee');
 const table = document.getElementById('table');
+const firstname = document.getElementById('firstname');
+const lastname = document.getElementById('lastname');
+const date = document.getElementById('date');
+const salaire = document.getElementById('salaire')
+const button = document.getElementById('button')
+
 
 const myEmployee = {
     lastname: "Doe",
@@ -41,6 +47,22 @@ function employeeProfile(employee) {
 
 title();
 employeeProfile(myEmployee);
+
+function enregistrer(){
+    myEmployee.firstname = firstnameInput.value;
+    myEmployee.lastname = lastnameInput.value;
+    myEmployee.birthday = dateInput.value;
+    myEmployee.salary = parseInt(salaireInput.value);
+
+    title();
+    employeeProfile(myEmployee);
+}
+
+button.addEventListener("click", enregistrer);
+
+title();
+employeeProfile(myEmployee);
+
 
 
 
