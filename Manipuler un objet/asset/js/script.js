@@ -3,9 +3,9 @@ const table = document.getElementById('table');
 const firstname = document.getElementById('firstname');
 const lastname = document.getElementById('lastname');
 const date = document.getElementById('date');
-const salaire = document.getElementById('salaire')
-const button = document.getElementById('button')
-
+const salaire = document.getElementById('salaire');
+const button = document.getElementById('button');
+const message = document.getElementById('message');
 
 const myEmployee = {
     lastname: "Doe",
@@ -14,26 +14,28 @@ const myEmployee = {
     salary: 2150
 };
 
+// Génère l'e-mail à partir du prénom et du nom
 function genererMail(prenom, nom) {
     return `${prenom.toLowerCase()}.${nom.toLowerCase()}@example.com`;
 }
 
+// Met à jour le titre principal
 function title() {
-    nameEmployee.textContent = `${myEmployee.firstname} ${myEmployee.lastname}`;
+    nameEmployee.textContent = `Profil de ${myEmployee.firstname} ${myEmployee.lastname}`;
 }
 
+// Affiche le profil de l'employé dans le tableau
 function employeeProfile(employee) {
     const tbody = document.getElementById('tbody');
     tbody.innerHTML = '';
     const row = document.createElement('tr');
-
 
     const order = [
         employee.lastname,
         employee.firstname,
         employee.birthday,
         genererMail(employee.firstname, employee.lastname),
-        employee.salary + '€'
+        employee.salary + ' €'
     ];
 
     order.forEach(value => {
@@ -45,27 +47,57 @@ function employeeProfile(employee) {
     tbody.appendChild(row);
 }
 
-title();
-employeeProfile(myEmployee);
+function isValidName(name) {
+    return /^[a-zA-Z]{2,}$/.test(name);
+}
 
-function enregistrer(){
-    myEmployee.firstname = firstnameInput.value;
-    myEmployee.lastname = lastnameInput.value;
-    myEmployee.birthday = dateInput.value;
-    myEmployee.salary = parseInt(salaireInput.value);
+function isValidDate(dateStr) {
+    const today = new Date();
+    const dateValue = new Date(dateStr);
+    return dateValue < today;
+}
+
+function enregistrer() {
+    const newFirstname = firstname.value.trim();
+    const newLastname = lastname.value.trim();
+    const newDate = date.value;
+    const newSalary = parseInt(salaire.value);
+
+    if (!isValidName(newFirstname) || !isValidName(newLastname)) {
+        message.textContent = ("Le prénom et le nom doivent contenir uniquement des lettres et avoir au moins 2 caractères.");
+        return;
+    } else if (!isValidDate(newDate)) {
+        message.textContent = ("La date de naissance doit être dans le passé.");
+        return;
+    } else if (isNaN(newSalary) || newSalary < myEmployee.salary) {
+        message.textContent = ("Le salaire doit être un nombre et ne peut pas être inférieur au salaire précédent (" + myEmployee.salary + " €).");
+        return;
+    }
+
+
+    myEmployee.firstname = newFirstname;
+    myEmployee.lastname = newLastname;
+    myEmployee.birthday = newDate;
+    myEmployee.salary = newSalary;
 
     title();
     employeeProfile(myEmployee);
 }
 
+
+function remplirFormulaire() {
+    firstname.value = myEmployee.firstname;
+    lastname.value = myEmployee.lastname;
+    date.value = myEmployee.birthday;
+    salaire.value = myEmployee.salary;
+}
+
 button.addEventListener("click", enregistrer);
+
 
 title();
 employeeProfile(myEmployee);
-
-
-
-
+remplirFormulaire();
 
 
 
