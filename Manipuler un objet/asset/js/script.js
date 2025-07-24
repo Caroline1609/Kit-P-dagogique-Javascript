@@ -1,53 +1,88 @@
 const nameEmployee = document.getElementById('nameEmployee');
-const tab = document.getElementById('tab');
+const table = document.getElementById('table');
 
 const myEmployee = {
-    lastname: "Doe", 
-    firstname: "John", 
-    birthday: "1981-11-12", 
+    lastname: "Doe",
+    firstname: "John",
+    birthday: "1981-11-12",
     salary: 2150
+};
+
+function genererMail(prenom, nom) {
+    return `${prenom.toLowerCase()}.${nom.toLowerCase()}@example.com`;
 }
 
-function title(){
-    
+function title() {
+    nameEmployee.textContent = `${myEmployee.firstname} ${myEmployee.lastname}`;
 }
 
-console.log(myEmployee)
-
-function createTable(employee){
-
-    tab.innerHTML = '';
-
-    const table = document.createElement('table');
-    const thead = document.createElement('thead');
-    const tbody = document.createElement('tbody');
-
-    const headerRow = document.createElement('tr');
+function employeeProfile(employee) {
+    const tbody = document.getElementById('tbody');
+    tbody.innerHTML = '';
+    const row = document.createElement('tr');
 
 
-    Object.keys(employee).forEach(key => {
-        const th = document.createElement('th');
-        th.textContent = key;
-        headerRow.appendChild(th);
-    });
+    const order = [
+        employee.lastname,
+        employee.firstname,
+        employee.birthday,
+        genererMail(employee.firstname, employee.lastname),
+        employee.salary + '€'
+    ];
 
-    thead.appendChild(headerRow);
-    table.appendChild(thead);
-
-    const dataRow = document.createElement('tr');
-
-    Object.values(employee).forEach(value => {
+    order.forEach(value => {
         const td = document.createElement('td');
-        td.textContent = value.toString();
-        dataRow.appendChild(td);
+        td.textContent = value;
+        row.appendChild(td);
     });
-    tbody.appendChild(dataRow);
-    table.appendChild(tbody);
 
-    document.body.appendChild(table);
+    tbody.appendChild(row);
 }
 
-createTable(myEmployee);
+title();
+employeeProfile(myEmployee);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+//autre approche
+// function employeeProfile(employee) {
+//     table.innerHTML = ''; 
+
+
+//     // const thead = document.createElement('thead');
+//     // const headerRow = document.createElement('tr');
+
+//     // Object.keys(employee).forEach(key => {
+//     //     const th = document.createElement('th');
+//     //     th.textContent = key;
+//     //     headerRow.appendChild(th);
+//     // });
+
+//     // thead.appendChild(headerRow);
+//     // table.appendChild(thead);
+
+
+//     // const tbody = document.createElement('tbody');
+//     // const row = document.createElement('tr');
+
+//     // Object.values(employee).forEach(value => {
+//     //     const td = document.createElement('td');
+//     //     td.textContent = value.toString();
+//     //     row.appendChild(td);
+//     // });
+
+//     // tbody.appendChild(row);
+//     // table.appendChild(tbody);
+// }

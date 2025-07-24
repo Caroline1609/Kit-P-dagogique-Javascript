@@ -1,0 +1,29 @@
+body{
+    display: flex;
+    justify-content: center
+
+}
+
+table {
+
+    margin-top: 20px;
+    text-align: center;
+}
+
+main{
+    border: #90ee90 solid 2px;
+    width: 800px;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 10px;
+    text-align: left;
+    background-color: #90ee90;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
