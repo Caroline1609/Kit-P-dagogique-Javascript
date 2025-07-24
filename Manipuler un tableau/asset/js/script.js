@@ -71,10 +71,10 @@ function tableau() {
 
 
 function ajouterPersonne() {
-    let prenom = prenomInput.value.trim(); 
-    let nom = nomInput.value.trim();
+    let prenom = prenomInput.value; 
+    let nom = nomInput.value;
 
-    let regex = new RegExp('^[A-Za-zÀ-ž]{2,}$');
+    let regex = new RegExp('^[A-Za-zÀ-ÖØ-öø-ÿ]+([ -][A-Za-zÀ-ÖØ-öø-ÿ]+)*$');
 
     let ajout = `${prenom} ${nom}`;
 
