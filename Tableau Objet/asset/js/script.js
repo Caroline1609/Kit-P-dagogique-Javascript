@@ -1,8 +1,36 @@
-fetch('./asset/json/user.json')  // Va chercher le fichier Json
-  .then(response => response.json())  // transforme le texte JSON en objet JS
-  .then(data => { //recupère les données
-    console.log(data); // ici, tu as accès à toutes les données du JSON
+
+// Charger les utilisateurs depuis le fichier JSON
+fetch("./asset/json/user.json")
+  .then(response => response.json())
+  .then(data => {
+    users = data; // on stocke les utilisateurs récupérés
   })
-  .catch(error => { // en cas d'erreur, on affiche un message dans la console
-    console.error('Erreur de chargement JSON :', error); // Affiche l'erreur dans la console
+  .catch(error => {
+    console.error("Erreur lors du chargement du fichier JSON :", error); // Gérer les erreurs de chargement
   });
+
+// Gérer la connexion au clic sur le bouton
+document.querySelector("form").addEventListener("click", connexion);
+
+
+  function connexion(){
+    const identifiantInput = document.getElementById("identifiant").value.trim().toLowerCase();
+  const passwordInput = document.getElementById("motdepasse").value;
+  const message = document.getElementById("message");
+
+
+  
+
+  const user = users.find(user => {
+    const identifiant = `${user.firstname.toLowerCase()}.${user.lastname.toLowerCase()}`;
+    return identifiant === identifiantInput && user.password === passwordInput;
+  });
+
+  if (user) {
+    message.textContent = `✅ Bienvenue ${user.firstname} ${user.lastname} !`;
+    message.style.color = "green";
+  } else {
+    message.textContent = "❌ Identifiant ou mot de passe incorrect.";
+    message.style.color = "red";
+  }
+  }
