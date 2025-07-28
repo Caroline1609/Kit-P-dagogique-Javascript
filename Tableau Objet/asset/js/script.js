@@ -73,7 +73,9 @@ function tableauEmployer(utilisateurActif) {
   users.forEach(user => {
     const row = document.createElement('tr');
 
-
+    if (user.firstname === utilisateurActif.firstname && user.lastname === utilisateurActif.lastname) {
+      row.classList.add('surligner');
+    }
 
     const infos = [
       user.lastname,

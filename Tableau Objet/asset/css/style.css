@@ -81,6 +81,11 @@ button {
   color: #886174;
 }
 
+.surligner {
+    background-color: #715B64;
+    
+}
+
 
 #form.hidden{
   display: none;
@@ -102,9 +107,12 @@ table{
 
 th, td {
   border: #969984 solid 1px;
-  color: #504545;
 }
 
 thead{
   color : #715B64;
+}
+
+td{
+  color : #7a7776;
 }
