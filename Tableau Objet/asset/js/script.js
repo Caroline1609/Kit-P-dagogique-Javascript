@@ -3,8 +3,12 @@ const identifiant = document.getElementById("identifiant");
 const passwordInput = document.getElementById("motdepasse");
 const message = document.getElementById("message");
 const button = document.getElementById("button");
+const bienvenue = document.getElementById("bienvenue");
+const connecter = document.getElementById("connecter");
+const tbody = document.getElementById("tbody");
+const deconnection = document.getElementById('deconnection')
 
-  let users = [];
+let users = [];
 
 // Charger les utilisateurs depuis le fichier JSON
 fetch("./asset/json/user.json")
@@ -35,10 +39,6 @@ fetch("./asset/json/user.json")
     }, 5000);
   }
 
-
-
-
-
   function connexion(){
     const identifiantsaisie = identifiant.value.trim().toLowerCase();
     const motDePasseSaisi = passwordInput.value;
@@ -49,7 +49,10 @@ fetch("./asset/json/user.json")
   });
 
   if (user) {
-    message.textContent = `Bienvenue ${user.firstname} ${user.lastname} !`;
+    form.classList.add('hidden');
+    connecter.classList.add('active');
+    bienvenue.textContent = `Bienvenue ${user.firstname} ${user.lastname} !`;
+    tableauEmployer(user);
 
   } else {
 
@@ -58,4 +61,42 @@ fetch("./asset/json/user.json")
   }
 }
 
-  button.addEventListener("click", connexion);
+button.addEventListener("click", connexion);
+
+function genererMail(prenom, nom) {
+    return `${prenom.toLowerCase()}.${nom.toLowerCase()}@example.com`;
+}
+
+function tableauEmployer(utilisateurActif) {
+  tbody.innerHTML = '';
+
+  users.forEach(user => {
+    const row = document.createElement('tr');
+
+
+
+    const infos = [
+      user.lastname,
+      user.firstname,
+      user.birthday,
+      genererMail(user.firstname, user.lastname),
+      user.salary + ' €'
+    ];
+
+    infos.forEach(value => {
+      const td = document.createElement('td');
+      td.textContent = value;
+      row.appendChild(td);
+    });
+
+    tbody.appendChild(row);
+  });
+}
+
+function deco(){
+  connecter.classList.remove('active');
+  form.classList.remove('hidden');
+
+}
+
+deconnection.addEventListener("click", deco);

@@ -80,3 +80,31 @@ button {
   align-content: center;
   color: #886174;
 }
+
+
+#form.hidden{
+  display: none;
+}
+
+#connecter{
+  display: none;
+}
+
+#connecter.active{
+  display: block;
+}
+
+table{
+  margin-top: 20px;
+  text-align: center;
+  background-color: #C1AE9F;
+}
+
+th, td {
+  border: #969984 solid 1px;
+  color: #504545;
+}
+
+thead{
+  color : #715B64;
+}

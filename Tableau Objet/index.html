@@ -5,22 +5,18 @@
   <title>Espace membres</title>
   <link rel="stylesheet" href="./asset/css/style.css">
   <link rel="preload" href="./asset/json/user.json" as="fetch" type="application/json" crossorigin="anonymous">
-
   <script src="./asset/js/script.js" defer></script>
-  
 </head>
 <body>
   <div class="container">
     <div class="title">
-          <h1>Espace membres</h1>
-          <div id="message"></div>
+        <h1>Espace membres</h1>
+        <div id="message"></div>
     </div>
-
-
-    <fieldset class="identification">
+    <fieldset id="form" class="identification">
       <legend>Identification</legend>
 
-      <section id="form">
+      <section>
         <div class="form-group">
           <label for="identifiant">Identifiant:</label>
           <input type="text" id="identifiant" name="identifiant">
@@ -32,9 +28,34 @@
         </div>
 
         <button id="button">Connexion</button>
-
       </section>
     </fieldset>
+    <div id="connecter" class="connecter">
+      <span id="bienvenue"></span>
+      <button id="deconnection">Déconnection</button>
+      <div class="tableau">
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Date de Naissance</th>
+                    <th>Email</th>
+                    <th>Salaire</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+      </div>
+    </div>
+      
+
+
+
+
+
   </div>
 
 </body>
