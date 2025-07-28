@@ -1,6 +1,6 @@
 /* Couleurs inspirées de l'image */
 body {
-  font-family: Arial, sans-serif;
+  font-family :Verdana, Geneva, Tahoma, sans-serif;
   background-color: #d2b8a9;
   margin: 0;
   padding: 40px;
@@ -14,6 +14,14 @@ body {
   background-color: #d2b8a9;
   box-sizing: border-box;
 }
+
+.title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
 
 h1 {
   color: #6b4a4a;
@@ -58,4 +66,17 @@ button {
   border: 1px solid #897f70;
   color: #5e4a4a;
   cursor: pointer;
+}
+
+#message {
+  display: none;
+}
+
+#message.active {
+  display: block;
+  border:  1px solid #999B86;
+  background-color: #C1AE9F;
+  padding: 20px;
+  align-content: center;
+  color: #886174;
 }
