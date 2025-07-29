@@ -17,6 +17,8 @@ function afficherListe() {
         let li = document.createElement("li");
         li.textContent = person;
         liste.appendChild(li);
+
+        console.log(person)
     });
 }
 
