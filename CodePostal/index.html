@@ -3,15 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Recherche Ville par Code Postal</title>
+  <link rel="stylesheet" href="./asset/css/style.css">
   <script src="./asset/js/script.js" defer></script>
 </head>
 <body>
-  <h1>Ville / Code Postal</h1>
+  <main>
+    <h1>Ville / Code Postal</h1>
   <form id="searchForm">
-    <input type="search" id="zipcodeInput" placeholder="Entrez un code postal" list="datalistSuggestions">
+    <input type="search" id="zipcodeInput" placeholder="ex : 68" list="datalistSuggestions">
     <datalist id="datalistSuggestions"></datalist>
     <button type="button" id="button">Valider</button>
+    <button id="btnTableau">Afficher les communes du département</button>
   </form>
   <div id="resultatVille"></div>
+  <div id="tableauResultats"></div>
+  </main>
+  
 </body>
 </html>

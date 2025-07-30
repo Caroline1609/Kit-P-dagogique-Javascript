@@ -1,0 +1,15 @@
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+main{
+    width: 800px;
+    border: 1px solid #014af5;
+    border-radius: 10px;
+    padding: 30px;
+}
