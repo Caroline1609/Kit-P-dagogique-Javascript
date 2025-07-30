@@ -82,6 +82,7 @@ fetch("./asset/json/cardgame.json")
     table.appendChild(tbody);
     tableau.appendChild(table);
   })
+
   .catch(error => {
     console.error("Erreur de chargement du JSON :", error);
   });
