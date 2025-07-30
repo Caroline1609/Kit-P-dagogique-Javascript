@@ -56,7 +56,7 @@ function afficherVille() {
        Le nom de la commune est ${resultat.nomCommune}<br>
        Le libellé d'acheminement est ${resultat.libelleAcheminement}`;
   } else {
-    resultatVilleDiv.textContent = "Aucune commune trouvée pour cette saisie.";
+    resultatVilleDiv.textContent = "Aucune commune trouvée";
   }
 }
 
@@ -70,16 +70,11 @@ function afficherTableau(event) {
     item.codePostal.startsWith(saisie)
   );
 
-  if (resultats.length === 0) { // Si aucun résultat n'est trouvé
-    tableauResultatsDiv.textContent = "Aucune commune trouvée pour ce code département."; // Afficher un message d'erreur
-    return;
-  }
-
   const table = document.createElement("table"); // Création du tableau
 
   const thead = document.createElement("thead"); /// Création de l'en-tête du tableau
   const headRow = document.createElement("tr");// Création de la ligne d'en-tête du tableau
-  const headers = ["Code Postal", "Commune", "Code Commune", "Libellé Acheminement"]; // En-têtes du tableau
+  const headers = ["Code Postal", "Commune"]; // En-têtes du tableau
 
   headers.forEach(texte => {
     const th = document.createElement("th"); // Création d'une cellule d'en-tête
@@ -101,16 +96,10 @@ function afficherTableau(event) {
     const tdNomCommune = document.createElement("td"); // Création d'une cellule pour le nom de la commune
     tdNomCommune.textContent = item.nomCommune; // Remplissage de la cellule avec le nom de la commune  
 
-    const tdCodeCommune = document.createElement("td"); // Création d'une cellule pour le code de commune
-    tdCodeCommune.textContent = item.codeCommune; // Remplissage de la cellule avec le code de commune
-
-    const tdLibelle = document.createElement("td"); // Création d'une cellule pour le libellé d'acheminement
-    tdLibelle.textContent = item.libelleAcheminement; // Remplissage de la cellule avec le libellé d'acheminement
 
     row.appendChild(tdCodePostal); // Ajout de la cellule du code postal à la ligne
     row.appendChild(tdNomCommune); // Ajout de la cellule du nom de la commune à la ligne
-    row.appendChild(tdCodeCommune); // Ajout de la cellule du code de commune à la ligne
-    row.appendChild(tdLibelle); // Ajout de la cellule du libellé d'acheminement à la ligne
+  
 
     tbody.appendChild(row); // Ajout de la ligne au corps du tableau
   });
