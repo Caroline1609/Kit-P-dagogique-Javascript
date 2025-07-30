@@ -10,13 +10,13 @@ fetch("./asset/json/zipcodes.json")
   .then(response => response.json())
   .then(data => {
     codePostal = data;
-    console.log("✅ Données chargées :", codePostal);
+    console.log("Données chargées :", codePostal);
 
     // Activer la suggestion lors de la saisie
     input.addEventListener("input", suggestion);
   })
   .catch(error => {
-    console.error("❌ Erreur de chargement du JSON :", error);
+    console.error("Erreur de chargement du JSON :", error);
   });
 
 // Fonction de suggestion dynamique
@@ -39,18 +39,18 @@ function suggestion() {
   }
 }
 
-// Afficher la ville sélectionnée au clic
-button.addEventListener("click", () => {
-  const saisie = input.value.trim();
+// // Afficher la ville sélectionnée au clic
+// button.addEventListener("click", () => {
+//   const saisie = input.value.trim();
 
-  const resultat = codePostal.find(item =>
-    `${item.codePostal} - ${item.libelleAcheminement}`.toLowerCase() === saisie.toLowerCase()
-  );
+//   const resultat = codePostal.find(item =>
+//     `${item.codePostal} - ${item.libelleAcheminement}`.toLowerCase() === saisie.toLowerCase()
+//   );
 
-  if (resultat) {
-    resultatVilleDiv.textContent =
-      `Commune sélectionnée : ${resultat.nomCommune} (${resultat.codePostal})`;
-  } else {
-    resultatVilleDiv.textContent = "Aucune commune trouvée pour cette saisie.";
-  }
-});
+//   if (resultat) {
+//     resultatVilleDiv.textContent =
+//       `Commune sélectionnée : ${resultat.nomCommune} (${resultat.codePostal})`;
+//   } else {
+//     resultatVilleDiv.textContent = "Aucune commune trouvée pour cette saisie.";
+//   }
+// });
