@@ -39,18 +39,21 @@ function suggestion() {
   }
 }
 
-// // Afficher la ville sélectionnée au clic
-// button.addEventListener("click", () => {
-//   const saisie = input.value.trim();
+function afficherVille(resultats){
 
-//   const resultat = codePostal.find(item =>
-//     `${item.codePostal} - ${item.libelleAcheminement}`.toLowerCase() === saisie.toLowerCase()
-//   );
+    const saisie = input.value.trim();
 
-//   if (resultat) {
-//     resultatVilleDiv.textContent =
-//       `Commune sélectionnée : ${resultat.nomCommune} (${resultat.codePostal})`;
-//   } else {
-//     resultatVilleDiv.textContent = "Aucune commune trouvée pour cette saisie.";
-//   }
-// });
+  const resultat = codePostal.find(item =>
+    `${item.codePostal} - ${item.libelleAcheminement}`.toLowerCase() === saisie.toLowerCase()
+  );
+
+  if (resultat) {
+    resultatVilleDiv.innerHTML =
+      `Commune sélectionnée :<br> Le code postal est ${resultat.codePostal}<br> le code de commune est (${resultat.codeCommune})<br> le nom de la commune est (${resultat.nomCommune})<br> le libelle Acheminement est(${resultat.libelleAcheminement})`;
+  } else {
+    resultatVilleDiv.textContent = "Aucune commune trouvée pour cette saisie.";
+  }
+}
+
+// Afficher la ville sélectionnée au clic
+button.addEventListener("click", afficherVille);
