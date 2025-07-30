@@ -70,8 +70,8 @@ function afficherTableau(event) {
     item.codePostal.startsWith(saisie)
   );
 
-  if (resultats.length === 0) {
-    tableauResultatsDiv.textContent = "Aucune commune trouvée pour ce code département.";
+  if (resultats.length === 0) { // Si aucun résultat n'est trouvé
+    tableauResultatsDiv.textContent = "Aucune commune trouvée pour ce code département."; // Afficher un message d'erreur
     return;
   }
 
