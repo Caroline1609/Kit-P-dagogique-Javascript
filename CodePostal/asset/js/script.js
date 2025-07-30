@@ -61,7 +61,7 @@ function afficherVille() {
 }
 
 // Afficher tableau des communes du département (avec forEach)
-function afficherTableau() {
+function afficherTableau(event) {
   event.preventDefault(); // ← empêche le bouton de recharger la page
   const saisie = input.value.trim();
   tableauResultatsDiv.innerHTML = "";
@@ -75,22 +75,22 @@ function afficherTableau() {
     return;
   }
 
-  const table = document.createElement("table");
+  const table = document.createElement("table"); // Création du tableau
 
-  const thead = document.createElement("thead");
-  const headRow = document.createElement("tr");
-  const headers = ["Code Postal", "Commune", "Code Commune", "Libellé Acheminement"];
+  const thead = document.createElement("thead"); /// Création de l'en-tête du tableau
+  const headRow = document.createElement("tr");// Création de la ligne d'en-tête du tableau
+  const headers = ["Code Postal", "Commune", "Code Commune", "Libellé Acheminement"]; // En-têtes du tableau
 
   headers.forEach(texte => {
-    const th = document.createElement("th");
-    th.textContent = texte;
-    headRow.appendChild(th);
+    const th = document.createElement("th"); // Création d'une cellule d'en-tête
+    th.textContent = texte; // Remplissage de la cellule avec le texte de l'en-tête
+    headRow.appendChild(th); // Ajout de la cellule d'en-tête à la ligne d'en-tête
   });
 
-  thead.appendChild(headRow);
+  thead.appendChild(headRow); // Ajout de la ligne d'en-tête au tableau
   table.appendChild(thead);
 
-  const tbody = document.createElement("tbody");
+  const tbody = document.createElement("tbody"); // Création du corps du tableau
 
   resultats.forEach(item => {
     const row = document.createElement("tr"); // Création d'une ligne pour chaque résultat
