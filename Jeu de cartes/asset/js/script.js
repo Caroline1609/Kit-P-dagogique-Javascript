@@ -41,7 +41,7 @@ fetch("./asset/json/cardgame.json")
       tdLevel.textContent = item.level;
 
       const tdDescription = document.createElement("td");
-      tdDescription.textContent = item.description || "-";
+      tdDescription.textContent = "-";
 
       const tdPower = document.createElement("td");
       tdPower.textContent = item.power;
