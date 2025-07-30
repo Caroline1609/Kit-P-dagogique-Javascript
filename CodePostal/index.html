@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recherche Ville par Code Postal</title>
   <script src="./asset/js/script.js" defer></script>
-  <link rel="stylesheet" href="./asset/css/style.css">
-  <title>Ville / code postal</title>
 </head>
 <body>
-  <h1>Ville / code postal</h1>
-   <form id="searchForm">
-    <input type="search" id="zipcodeInput" placeholder="Entrez un code postal" list="suggestions" />
-    <datalist id="suggestions"></datalist>
-    <button type="submit">Valider</button>
+  <h1>Ville / Code Postal</h1>
+  <form id="searchForm">
+    <input type="search" id="zipcodeInput" placeholder="Entrez un code postal" list="datalistSuggestions">
+    <datalist id="datalistSuggestions"></datalist>
+    <button type="button" id="button">Valider</button>
   </form>
-
   <div id="resultatVille"></div>
 </body>
 </html>
