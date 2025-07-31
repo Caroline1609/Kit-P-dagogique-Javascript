@@ -6,3 +6,32 @@
     --color5: #6E7799;
     --color6: #C490D1;
 }
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--color1);
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+main{
+    padding: 20px;
+    border: var(--color3) solid 1px;
+    width: 800px;
+    margin-top: 50px;
+}
+
+table, th, td{
+    border: var(--color5) solid 1px;
+    background-color: var(--color4);
+}
+
+h1, table{
+    color : var(--color3)
+}
+
+li{
+    color: var(--color2);
+}
