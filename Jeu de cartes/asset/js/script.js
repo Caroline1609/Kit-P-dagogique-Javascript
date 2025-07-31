@@ -81,7 +81,49 @@ fetch("./asset/json/cardgame.json")
 
     table.appendChild(tbody);
     tableau.appendChild(table);
+
+    // --- Partie simple pour les statistiques ---
+
+  // Initialisation de variables simples
+  let plusJouee = carte[0];
+  let meilleurRatio = carte[0];
+  let meilleurRatioValeur = 0;
+
+  // Parcours de toutes les cartes
+  carte.forEach(item => {
+    // Carte la plus jouée
+    if (item.played > plusJouee.played) {
+      plusJouee = item;
+    }
+
+    // Calcul du ratio victoires / défaites (on ignore les matchs nuls)
+    const totalSansNul = item.victory + item.defeat;
+
+    if (item.defeat > 0 && totalSansNul > 0) {
+      const ratio = item.victory / item.defeat;
+      
+      if (ratio > meilleurRatioValeur) {
+        meilleurRatioValeur = ratio;
+        meilleurRatio = item;
+      }
+    }
+  });
+
+  // Création d'un paragraphe pour afficher les résultats
+  const infos = document.createElement("div");
+  infos.innerHTML = `
+    <p><strong>Carte la plus jouée :</strong> ${plusJouee.name} (${plusJouee.victory} victoires)</p>
+    <p><strong>Meilleur ratio V/D :</strong> ${meilleurRatio.name} (${meilleurRatio.played} parties, ${meilleurRatio.victory} victoires)</p>
+  `;
+
+// Ajout à la page
+tableau.appendChild(infos);
+
   })
+
+  
+
+  
 
   .catch(error => {
     console.error("Erreur de chargement du JSON :", error);
