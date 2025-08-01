@@ -23,9 +23,29 @@ main{
     margin-top: 50px;
 }
 
+form{
+    padding: 20px;
+    border: #ffffff 1px solid;
+    border-style: dashed;
+    margin-bottom: 30px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+legend{
+    margin-bottom: 10px;
+}
+
+label, input{
+    flex-basis: 20px;
+}
+
+
 table, th, td{
     border: var(--color5) solid 1px;
     background-color: var(--color4);
+    padding: 10px;
 }
 
 h1, table{
@@ -34,4 +54,8 @@ h1, table{
 
 li{
     color: var(--color2);
+}
+
+td .ouiNon {
+    border: none;
 }
