@@ -13,10 +13,14 @@
         <h1>Résultat de l'Évaluation</h1>
         <form>
             <legend>Ajouter une note</legend>
-            <label for="Nom Prenom">Nom Prenom</label>
-            <input type="text">
-            <label for="note">Note</label>
-            <input type="number">
+            <div class="formulaire">
+                <label for="NomPrenom">Nom Prenom</label>
+                <input type="text" id="NomPrenom" name="NomPrenom" required>
+                <label for="note">Note</label>
+                <input type="number" id="note" name="note" required min="0" max="20">
+                <button id="button">Ajouter</button>
+            </div>
+            
         </form>
 
         <table id="table">
